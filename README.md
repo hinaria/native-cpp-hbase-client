@@ -1,18 +1,49 @@
 # Overview
-This is a work in progress!  It does not compile, but it does work.
-
-Currently all folly/ references are part of a pending release of code.
-This is a preview, so that code is not out yet.  It may be hacked
-around, but once folly is there, most of this should still work.
+This is a work in progress!
 
 Dependencies:
--  thrift :)
+-  HBase 0.94.0 or later
+-  thrift 0.8.0
 -  google logging
 -  google flags
 -  gcc 4.6 or later, or some similarly C++11 compliant compiler
+-  facebook's folly library (get the latest from github at
+   https://github.com/facebook/folly/)
 
-See hbc.cpp and LiveClusterTesting.cpp for examples of use of the API.
+For now, see hbc.cpp and LiveClusterTesting.cpp for examples of use of
+the API.
 
+# Setting up your HBase environment
+
+NHC currently requires HBase 0.94.0 or newer.  In addition, you should
+configure your environment to enable the Region Server's embedded
+thrift server.  Specifically, put the following in your hbase-site.xml file:
+
+    <property>
+      <name>hbase.regionserver.export.thrift</name>
+      <value>true</value>
+    </property>
+    <property>
+      <name>hbase.regionserver.thrift.server.type</name>
+      <value>threadedselector</value>
+    </property>
+    <property>
+      <name>hbase.regionserver.thrift.port</name>
+      <value>9091</value>
+    </property>
+
+In a nutshell, this enables the in-region server thrift support,
+changes to the 'threadedselector' server type (the most efficient and
+high performance option), and asks it to listen to port 9091 (it will
+otherwise listen to port 9090 which conflicts with the default thrift
+port).
+
+Restart your cluster, and you should now be able to test!  For example:
+
+    ./hbc --zookeeper localhost:2181 tables
+
+To test the API with the hbc utility (included in this distribution).
+In fact...
 
 # hbc: a command line tool for working with hbase!
 hbc is a simple command line tool for use with an HBase cluster. The
