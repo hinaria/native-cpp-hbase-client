@@ -13,6 +13,23 @@ Dependencies:
 For now, see hbc.cpp and LiveClusterTesting.cpp for examples of use of
 the API.
 
+# Compiling
+
+First, setup and install folly as per the instructions for that
+project, as well as thrift and the other dependencies, either from
+source or from your operating system's package manager.  Once that is
+complete, run
+
+  cd hbase
+  autoreconf --install
+  D=/path/to/double-conversion-library
+  LDFLAGS="-L$D/double-conversion" CFLAGS="-I$D/double-conversion/src" CXXFLAGS="-I$D/double-conversion/src" ./configure
+  make
+  make check
+  make install
+
+Voila!  You're done.
+
 # Setting up your HBase environment
 
 NHC currently requires HBase 0.94.0 or newer.  In addition, you should
