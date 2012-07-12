@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#include "hbase/src/NativeHbaseClient.h"
-#include "hbase/src/NativeHbaseClient-inl.cpp"
+#include "hbase/NativeHbaseClient.h"
+#include "hbase/NativeHbaseClient-inl.cpp"
 
 #include <algorithm>
 #include <map>

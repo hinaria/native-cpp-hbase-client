@@ -26,7 +26,7 @@
 
 #include "boost/noncopyable.hpp"
 
-#include "hbase/src/NativeHbaseClient.h"
+#include "hbase/NativeHbaseClient.h"
 
 namespace facebook { namespace hbase {
 

@@ -60,7 +60,7 @@ T NativeHbaseClient::invokeRootOperation(NativeHbaseClient* client,
   for (int attempt = 0; attempt < 2; ++attempt) {
     try {
       auto now = system_clock::now();
-      ScopeGuard g = makeGuard(
+      ScopeGuard g = folly::makeGuard(
         [=] {
           stats_counters_->addHistogramValue(
             "root_rpc_time_micros",
@@ -124,7 +124,7 @@ T NativeHbaseClient::invokeRowOperation(const string& table, const string& row,
     }
     try {
       auto now = system_clock::now();
-      ScopeGuard g = makeGuard(
+      ScopeGuard g = folly::makeGuard(
         [=] {
           stats_counters_->addHistogramValue(
             "rowop_rpc_time_micros",
@@ -134,7 +134,8 @@ T NativeHbaseClient::invokeRowOperation(const string& table, const string& row,
       NativeHbaseConnection* conn = findConnection(table, row, ignore_cache);
       host = conn->host();
       port = conn->port();
-      ScopeGuard g2 = makeGuard([=] { connection_pool_.release(conn); } );
+      ScopeGuard g2 = folly::makeGuard(
+          [=] { this->connection_pool_.release(conn); } );
       logHbaseOperation(opname, host, port, "", timeout_ms_);
       return invokeThriftOperation<T>(this, conn, op);
     }

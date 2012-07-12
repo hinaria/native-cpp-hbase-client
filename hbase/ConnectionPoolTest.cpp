@@ -19,7 +19,7 @@
 #include <string>
 #include <unordered_set>
 
-#include "hbase/src/ConnectionPool.h"
+#include "hbase/ConnectionPool.h"
 
 #include <gtest/gtest.h>
 

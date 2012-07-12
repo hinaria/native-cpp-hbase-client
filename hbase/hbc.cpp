@@ -29,8 +29,8 @@
 #include "folly/Range.h"
 #include "folly/Conv.h"
 #include "folly/String.h"
-#include "hbase/src/HbcExtensions.h"
-#include "hbase/src/NativeHbaseClient.h"
+#include "hbase/HbcExtensions.h"
+#include "hbase/NativeHbaseClient.h"
 
 const char* usage =
   "Usage: hbc [params] command [command params]\n"

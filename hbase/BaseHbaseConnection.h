@@ -20,7 +20,7 @@
 #ifndef HBASE_SRC_BASEHBASECONNECTION_H
 #define HBASE_SRC_BASEHBASECONNECTION_H
 
-#include "hbase/src/nhc-config.h"
+#include "hbase/nhc-config.h"
 
 #include <string>
 #include <memory>
@@ -28,14 +28,14 @@
 #include "folly/Logging.h"
 
 #if !NHC_OPEN_SOURCE
-#include "thrift/lib/cpp/protocol/THeaderProtocol.h"
-#include "thrift/lib/cpp/transport/THeaderTransport.h"
+#include "protocol/THeaderProtocol.h"
+#include "transport/THeaderTransport.h"
 #endif
 
-#include "thrift/lib/cpp/protocol/TBinaryProtocol.h"
-#include "thrift/lib/cpp/protocol/TCompactProtocol.h"
-#include "thrift/lib/cpp/transport/TBufferTransports.h"
-#include "thrift/lib/cpp/transport/TSocket.h"
+#include "protocol/TBinaryProtocol.h"
+#include "protocol/TCompactProtocol.h"
+#include "transport/TBufferTransports.h"
+#include "transport/TSocket.h"
 
 namespace facebook { namespace hbase {
 

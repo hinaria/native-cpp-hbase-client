@@ -41,7 +41,7 @@
 #ifndef HBASE_SRC_NATIVEHBASECLIENT_H_
 #define HBASE_SRC_NATIVEHBASECLIENT_H_
 
-#include "hbase/src/nhc-config.h"
+#include "hbase/nhc-config.h"
 
 #if NHC_OPEN_SOURCE
 #include <zookeeper/zookeeper.h>
@@ -62,12 +62,12 @@
 
 #include "folly/Conv.h"
 #include "folly/ScopeGuard.h"
-#include "hbase/if/gen-cpp/Hbase.h"
-#include "hbase/src/BaseHbaseConnection.h"
-#include "hbase/src/ConnectionPool.h"
-#include "hbase/src/Counters.h"
-#include "thrift/lib/cpp/concurrency/Mutex.h"
-#include "thrift/lib/cpp/Thrift.h"
+#include "hbase/Hbase.h"
+#include "hbase/BaseHbaseConnection.h"
+#include "hbase/ConnectionPool.h"
+#include "hbase/Counters.h"
+#include "concurrency/Mutex.h"
+#include "Thrift.h"
 
 namespace facebook { namespace hbase {
 

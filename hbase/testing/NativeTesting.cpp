@@ -35,9 +35,9 @@
 #include "folly/Hash.h"
 #include "folly/String.h"
 
-#include "hbase/src/NativeHbaseClient.h"
+#include "hbase/NativeHbaseClient.h"
 
-#include "hbase/if/gen-cpp/hbase_constants.h"
+#include "hbase/hbase_constants.h"
 
 using namespace facebook;
 using namespace std;

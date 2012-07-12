@@ -32,7 +32,7 @@
 
 #include "folly/Logging.h"
 
-#include "hbase/src/Counters.h"
+#include "hbase/Counters.h"
 
 // This needs to be declared before the template below for clang (ADL
 // rules, see http://clang.llvm.org/compatibility.html, somewhat
